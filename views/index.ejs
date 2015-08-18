@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hidden Formosa</title>
+
+	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/3.0.2/normalize.css">
+	<link rel="stylesheet" href="/css/grid.css">
+	<link rel="stylesheet" href="/css/ionicons.min.css">
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/css/animate.css">
+	<link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,300italic,700,900' rel='stylesheet' type='text/css'>
+
+	<script src="/jquery/dist/jquery.js"></script>
+	<script src="/angular/angular.js"></script>
+	<script src="/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="/waypoints/lib/jquery.waypoints.js"></script>
+	<script src='https://maps.googleapis.com/maps/api/js?sensor=false'></script>
+	<script src="/lodash/lodash.min.js"></script>
+	<script src="/angular-google-maps/dist/angular-google-maps.min.js"></script>
+	<script src="/angular-waypoints/dist/angular-waypoints.js"></script>
+	<script src="/skrollr/src/skrollr.js"></script>
+	<script src="/angular-scroll/angular-scroll.js"></script>
+	<script src="/js/app.js"></script>
+
+</head>
+<body ng-app='hiddenFormosa'>
+	
+	<nav>
+		
+		<div class="nav-brand" nav-directive>
+			<a ui-sref="home" class="logo-link"><div class="nav-logo" svg-logo ng-click="routeHome()"></div></a>
+		</div>
+
+		<ul class="main-nav">
+			<a style="cursor: pointer">
+				<li class="nav-about">
+					<span class="ion-ios-information-outline nav-icons"></span>
+					<p class="about">About</p>
+				</li>
+			</a>
+			<a ui-sref="map">
+				<li class="nav-button nav-active">
+					<span class="ion-ios-location-outline nav-icons"></span>
+					<p class="about">Map</p>
+				</li>
+			</a>
+			<a ui-sref="taiwan">
+				<li class="nav-button">
+					<span class="ion-ios-timer-outline nav-icons"></span>
+					<p class="about">Taiwan History</p>
+				</li>
+			</a>
+			<a ui-sref="blog">
+				<li class="nav-button">
+					<span class="ion-edit nav-icons"></span>
+					<p class="about">Blog</p>
+				</li>
+			</a>
+			<a ui-sref="home">
+				<li class="nav-button">
+					<span class="ion-ios-person-outline nav-icons"></span>
+					<p class="about">Login</p>
+				</li>
+			</a>
+			
+		</ul>
+
+	</nav>
+
+	<section class="about-section">
+		
+		<div class="about-content">
+
+			<h3>About us</h3>
+
+			<p class="long-para">
+				Two brothers living in Taiwan, who feel that Taiwan is an overlooked country within Asia. We both truly believe that Taiwan is the #1 hidden gem in the entire world for vacation, history and culture.
+
+				We want to show the entire world that Taiwan should be your next vacation destination, and build a community for everyone residing in Taiwan to connect and share their experiences with everyone else in the entire world!
+
+			</p>
+			
+		</div>
+		
+	</section>
+
+	<div ui-view class="view-container"></div>
+	
+</body>
+</html>

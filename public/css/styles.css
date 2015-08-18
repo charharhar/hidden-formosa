@@ -1,0 +1,276 @@
+/*
+Primary color: #edded9;
+darker version: #d5c6c0;
+
+
+*/
+
+* {
+	margin:0;
+	padding:0;
+}
+
+html,
+body {
+	background-color:#edded9;
+	color:#555;
+	font-family:'Lato', 'Arial', sans-serif;
+	font-weight:300;
+	font-size:20px;
+	height:100%;
+	width:100%;
+}
+
+.view-container {
+	transition: 0.5s all;
+}
+
+.row {
+	max-width: 1140px;
+	margin:0 auto;
+}
+
+.long-para {
+	line-height:130%;
+	font-weight:400;
+	letter-spacing: 1px;
+	word-spacing:1px;
+}
+
+/* =========================================================================================== */
+/* HEADINGS */
+/* =========================================================================================== */
+h1,
+h2,
+h3 {
+
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+	text-transform: uppercase;
+	margin-bottom:10px;
+	font-size:160%;
+}
+
+
+/* =========================================================================================== */
+/* ICONS & FONTS & SVGS */
+/* =========================================================================================== */
+/*.magnify-handle {
+	fill:#fafafa;
+	transition:0.5s all;
+}
+
+.hf-logo:hover .magnify-handle {
+	fill:#010101;
+}*/
+
+.taiwan {
+	fill:#283A82;
+	opacity:0;
+	stroke-width:3px;
+	stroke-dasharray:250;
+	stroke-dashoffset:250;
+	transition:1.5s all;
+}
+
+.nav-logo:hover:after p {
+	background-color:blue;
+}
+
+.hf-logo:hover .taiwan {
+	stroke-dashoffset:0;
+	fill:#08A650;
+	opacity:1;
+}
+
+.red-accents path {
+	fill:#fafafa;
+	transition:1s all;
+}
+
+.hf-logo:hover .red-accents path {
+	fill:red;
+	transition-delay:.75s;
+}
+
+
+/* =========================================================================================== */
+/* NAVIGATION */
+/* =========================================================================================== */
+
+nav {
+	height:120px;
+	background-color:#fafafa;
+	border-bottom:1px solid #eee;
+	position:relative;
+	z-index:100;
+}
+
+.main-nav li:after {
+    content: "";
+    display: block;
+    border: 20px solid transparent;
+    border-bottom-color: #BAAEAA;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    margin-left: -20px;
+    opacity:0;
+}
+
+.main-nav a:hover li:after {
+	opacity:1;
+}
+
+.main-nav li:after {
+	transition:all 0.3s;
+}
+
+.logo-link {
+	margin-top:5px;
+	margin-left:50px;
+	position:absolute;
+	top:0;
+	left:0;
+	height:150px;
+	width:150px;
+	z-index:10;
+	background-color:(0, 0, 0, 0);
+}
+
+.main-nav {
+	list-style:none;
+	height:100%;
+	display:block;
+	margin-left:250px;
+}
+
+.main-nav > :first-child li {
+	border-left:1px solid #edded9;
+}
+
+.main-nav li {
+	float:left;
+	width:120px;
+	text-align: center;
+	border-right:1px solid #edded9;
+	height:100%;
+	transition:all 0.3s;
+	position:relative;
+}
+
+.main-nav li p {
+	padding-top:50px;
+	color:#222;
+	transition:0.5s all;
+}
+
+.main-nav li:hover p {
+	transform: scale3d(0.5, 0.5, 1);
+	opacity:0;
+}
+
+.main-nav li:hover {
+	background-color:#edded9;
+}
+
+.main-nav a::link,
+.main-nav a::visited {
+	text-decoration: none;
+}
+
+.main-nav .nav-icons {
+	position:absolute;
+	top:50%;
+	font-size:200%;
+	color:#BAAEAA;
+	opacity:0;
+	transform:translate(-50%, -50%) scale3d(0.5, 0.5, 1);
+	transition:0.5s all;
+}
+
+.main-nav li:hover .nav-icons {
+	opacity:1;
+	transform:translate(-50%, -50%) scale3d(1, 1, 1);
+}
+
+.nav-active {
+	background-color:#edded9;
+}
+
+
+
+/* =========================================================================================== */
+/* HEADER */
+/* =========================================================================================== */
+
+
+/* =========================================================================================== */
+/* ABOUT */
+/* =========================================================================================== */
+
+.about-section {
+
+}
+
+.about-content {
+	margin:15px 0;
+	padding:20px 250px 20px 250px;
+	position:absolute;
+	top:0;
+	opacity:0;
+	transition:0.5s all;
+	z-index:10;
+	background-color:#222;
+	color:#edded9;
+}
+
+.about-activate {
+	top:140px;
+	opacity:1;
+}
+
+/* =========================================================================================== */
+/* MAP */
+/* =========================================================================================== */
+
+.angular-google-map-container {
+	height:600px;
+	width:80%;
+	margin:40px auto;
+}
+
+/* =========================================================================================== */
+/* TAIWAN HISTORY */
+/* =========================================================================================== */
+
+
+/* =========================================================================================== */
+/* BLOG */
+/* =========================================================================================== */
+
+
+/* =========================================================================================== */
+/* BUTTONS */
+/* =========================================================================================== */
+
+
+/* =========================================================================================== */
+/* FOOTER */
+/* =========================================================================================== */
+
+
+
+/* =========================================================================================== */
+/* ANIMATIONS */
+/* =========================================================================================== */
+
