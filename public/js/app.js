@@ -30,6 +30,10 @@
 				url:'/about-taiwan',
 				templateUrl:'partial/taiwan.ejs'
 			})
+			.state('attractions', {
+				url:'/attractions',
+				templateUrl:'partial/attractions.ejs'
+			})
 			.state('blog', {
 				url:'/blog',
 				templateUrl:'partial/blog.ejs'
@@ -47,7 +51,7 @@
 	app.controller('mapController', ['$scope', function($scope) {
 
 		$scope.map = { 
-			center: { latitude: 23.5, longitude: 121 }, 
+			center: { latitude: 23.75, longitude: 121 }, 
 			zoom: 8 
 		};
 

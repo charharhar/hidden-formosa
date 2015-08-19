@@ -23,6 +23,7 @@ body {
 
 .view-container {
 	transition: 0.5s all;
+	overflow:hidden;
 }
 
 .row {
@@ -43,7 +44,8 @@ body {
 h1,
 h2,
 h3 {
-
+	margin:0;
+	padding:0;
 }
 
 h1 {
@@ -51,12 +53,19 @@ h1 {
 }
 
 h2 {
-
+	padding-top:10px;
+	color:#333;
+	text-align:center;
+	color:#73A096;
+	text-transform: uppercase;
+	font-weight:300;
+	font-size:240%;
 }
+
 
 h3 {
 	text-transform: uppercase;
-	margin-bottom:10px;
+	margin-bottom:15px;
 	font-size:160%;
 }
 
@@ -108,9 +117,8 @@ h3 {
 /* =========================================================================================== */
 
 nav {
-	height:120px;
+	height:130px;
 	background-color:#fafafa;
-	border-bottom:1px solid #eee;
 	position:relative;
 	z-index:100;
 }
@@ -127,6 +135,10 @@ nav {
     opacity:0;
 }
 
+.main-nav a {
+	cursor:pointer;
+}
+
 .main-nav a:hover li:after {
 	opacity:1;
 }
@@ -137,12 +149,12 @@ nav {
 
 .logo-link {
 	margin-top:5px;
-	margin-left:50px;
+	margin-left:60px;
 	position:absolute;
 	top:0;
 	left:0;
-	height:150px;
-	width:150px;
+	height:110px;
+	width:110px;
 	z-index:10;
 	background-color:(0, 0, 0, 0);
 }
@@ -169,7 +181,7 @@ nav {
 }
 
 .main-nav li p {
-	padding-top:50px;
+	padding-top:55px;
 	color:#222;
 	transition:0.5s all;
 }
@@ -223,8 +235,8 @@ nav {
 }
 
 .about-content {
-	margin:15px 0;
-	padding:20px 250px 20px 250px;
+	margin:25px 0 15px 0;
+	padding:25px 250px 25px 250px;
 	position:absolute;
 	top:0;
 	opacity:0;
@@ -253,6 +265,89 @@ nav {
 /* TAIWAN HISTORY */
 /* =========================================================================================== */
 
+.info-section{
+	background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../imgs/SAM_0524.jpg);
+	background-size:cover;
+	background-position:center;
+	background-attachment:fixed;
+	height: 80vh;
+}
+
+.info-hero-content {
+	height:inherit;
+}
+
+.info-heading {
+	margin:0 auto;
+	color:#edded9 !important;
+	padding:12% 20%;
+}
+
+.info-section p {
+	color:#333;
+}
+
+.content-container {
+}
+
+.content-block {
+	display:block;
+	width:50%;
+	height:50vh;
+	background-color:#edded9;
+	float:left;
+}
+
+.content-block p {
+	padding:25px;
+	font-size:80%;
+	line-height:150%;
+}
+
+.history-block {
+	clear:both;
+	background-image:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../imgs/SAM_0331.jpg);
+	background-size:cover;
+	background-position:center;
+	background-attachment:fixed;
+	padding: 200px;
+}
+
+.history-block p,
+.history-block h2 {
+	color:#edded9;
+}
+
+.history-block p {
+	padding:25px;
+	font-size:80%;
+	line-height:150%;
+}
+
+.history-block h2 {
+	margin-top:30px;
+	text-align:center;
+	text-transform: uppercase;
+	font-weight:300;
+	font-size:240%;
+}
+
+.filler {
+	position:relative;
+}
+
+.filler img{
+	width:100%;
+	height:inherit;
+}
+
+.filler:after {
+    content: '\A';
+    position: absolute;
+    width: 100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.2);
+}
 
 /* =========================================================================================== */
 /* BLOG */
@@ -274,3 +369,18 @@ nav {
 /* ANIMATIONS */
 /* =========================================================================================== */
 
+.block-1,
+.block-2,
+.block-3,
+.block-4,
+.block-5 {
+	opacity:0;
+}
+
+.block-1.animated,
+.block-2.animated,
+.block-3.animated,
+.block-4.animated,
+.block-5.animated {
+	opacity:1;
+}
