@@ -15,9 +15,9 @@
 	<script src="/angular/angular.js"></script>
 	<script src="/angular-ui-router/release/angular-ui-router.js"></script>
 	<script src="/waypoints/lib/jquery.waypoints.js"></script>
-	<script src='https://maps.googleapis.com/maps/api/js?sensor=false'></script>
 	<script src="/lodash/lodash.min.js"></script>
-	<script src="/angular-google-maps/dist/angular-google-maps.min.js"></script>
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
+<!--  <script src="/angular-google-maps/dist/angular-google-maps.min.js"></script>  -->
 	<script src="/angular-waypoints/dist/angular-waypoints.js"></script>
 	<script src="/skrollr/src/skrollr.js"></script>
 	<script src="/angular-scroll/angular-scroll.js"></script>
@@ -26,72 +26,105 @@
 </head>
 <body ng-app='hiddenFormosa'>
 	
-	<nav>
-		
-		<div class="nav-brand" nav-directive>
-			<a ui-sref="home" class="logo-link"><div class="nav-logo" svg-logo ng-click="routeHome()"></div></a>
+	<div class="main-wrapper">
+
+		<nav>		
+			<div class="nav-brand" nav-directive>
+				<a ui-sref="home" class="logo-link"><div class="nav-logo" svg-logo ng-click="routeHome()"></div></a>
+			</div>
+
+			<ul class="main-nav">
+				<a>
+					<li class="nav-about">
+						<i class="ion-ios-information-outline nav-icons"></i>
+						<p class="about">About</p>
+					</li>
+				</a>
+				<a ui-sref="map">
+					<li class="nav-button nav-active">
+						<i class="ion-ios-location-outline nav-icons"></i>
+						<p class="about">Map</p>
+					</li>
+				</a>
+				<a ui-sref="taiwan">
+					<li class="nav-button">
+						<i class="ion-ios-timer-outline nav-icons"></i>
+						<p class="about">Taiwan History</p>
+					</li>
+				</a>
+				<a ui-sref="attractions">
+					<li class="nav-button">
+						<i class="ion-eye nav-icons"></i>
+						<p class="about">Attractions</p>
+					</li>
+				</a>
+				<a ui-sref="blog">
+					<li class="nav-button">
+						<i class="ion-edit nav-icons"></i>
+						<p class="about">Blog</p>
+					</li>
+				</a>
+				<a>
+					<li class="nav-login">
+						<i class="ion-ios-person-outline nav-icons"></i>
+						<p class="about">Login</p>
+					</li>
+				</a>
+				
+				<ul class="login-container">
+					<div class="inputs-container">
+						<form action="">
+							<input type="email" placeholder="example@email.com">
+							<input type="submit">
+							<input type="password">
+						</form>
+						<p>Dont have an account? <a href="">Signup!</a></p>
+					</div>
+				</ul>
+			</ul>
+		</nav>
+
+		<section class="about-section">
+			
+			<div class="about-content">
+
+				<h3>About us</h3>
+
+				<p class="long-para">
+					Two brothers living in Taiwan, who feel that Taiwan is an overlooked country within Asia. We both truly believe that Taiwan is the #1 hidden gem in the entire world for vacation, history and culture.
+
+					We want to show the entire world that Taiwan should be your next vacation destination, and build a community for everyone residing in Taiwan to connect and share their experiences with everyone else in the entire world!
+
+				</p>
+				
+			</div>
+			
+		</section>
+
+		<div class="social-media">
+			<ul class="social-nav">
+				<a href="https://www.facebook.com" target="_blank">
+					<li id="facebook"><i class="ion-social-facebook social-icons"></i></li>
+				</a>
+				<a href="https://www.reddit.com" target="_blank">
+					<li id="reddit"><i class="ion-social-reddit social-icons"></i></li>
+				</a>
+				<a href="https://www.youtube.com" target="_blank">
+					<li id="youtube"><i class="ion-social-youtube social-icons"></i></li>
+				</a>
+				<a href="https://www.twitter.com" target="_blank">
+					<li id="twitter"><i class="ion-social-twitter social-icons"></i></li>
+				</a>
+			</ul>
 		</div>
 
-		<ul class="main-nav">
-			<a>
-				<li class="nav-about">
-					<span class="ion-ios-information-outline nav-icons"></span>
-					<p class="about">About</p>
-				</li>
-			</a>
-			<a ui-sref="map">
-				<li class="nav-button nav-active">
-					<span class="ion-ios-location-outline nav-icons"></span>
-					<p class="about">Map</p>
-				</li>
-			</a>
-			<a ui-sref="taiwan">
-				<li class="nav-button">
-					<span class="ion-ios-timer-outline nav-icons"></span>
-					<p class="about">Taiwan History</p>
-				</li>
-			</a>
-			<a ui-sref="attractions">
-				<li class="nav-button">
-					<span class="ion-eye nav-icons"></span>
-					<p class="about">Attractions</p>
-				</li>
-			</a>
-			<a ui-sref="blog">
-				<li class="nav-button">
-					<span class="ion-edit nav-icons"></span>
-					<p class="about">Blog</p>
-				</li>
-			</a>
-			<a ui-sref="home">
-				<li class="nav-button">
-					<span class="ion-ios-person-outline nav-icons"></span>
-					<p class="about">Login</p>
-				</li>
-			</a>
-			
-		</ul>
+		<div ui-view class="view-container"></div>
 
-	</nav>
-
-	<section class="about-section">
+		<footer>
+			<p>Copyright 2015 &copy; Hidden Formosa All rights reserved.</p>
+		</footer>
 		
-		<div class="about-content">
-
-			<h3>About us</h3>
-
-			<p class="long-para">
-				Two brothers living in Taiwan, who feel that Taiwan is an overlooked country within Asia. We both truly believe that Taiwan is the #1 hidden gem in the entire world for vacation, history and culture.
-
-				We want to show the entire world that Taiwan should be your next vacation destination, and build a community for everyone residing in Taiwan to connect and share their experiences with everyone else in the entire world!
-
-			</p>
-			
-		</div>
-		
-	</section>
-
-	<div ui-view class="view-container"></div>
+	</div>
 	
 </body>
 </html>
