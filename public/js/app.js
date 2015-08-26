@@ -47,40 +47,17 @@
 
 	}])
 
-	app.controller('mapController', ['$scope', function($scope) {
+	app.controller('mapController', ['$scope', 'attractionsFactory', function($scope, attractionsFactory) {
 
-		$scope.cities = [
-			{
-				'place' : 'Taipei',
-				'details' : 'Capital of Taiwan',
-				'lat' : '25.0333',
-				'long' : '121.6333'
-			},
-			{
-				'place' : 'Keelung',
-				'details' : 'Heart of new Taipei',
-				'lat' : '25.1333',
-				'long' : '121.7333'
-			},
-			{
-				'place' : 'Ping Tung',
-				'details' : 'Aborigine culture',
-				'lat' : '22.6755',
-				'long' : '120.4914'
-			},
-			{
-				'place' : 'Kaohsiung',
-				'details' : 'Southern most City of Taiwan',
-				'lat' : '22.6333',
-				'long' : '120.2667'
-			},
-			{
-				'place' : 'Taichung',
-				'details' : 'Center City of Taiwan',
-				'lat' : '24.1500',
-				'long' : '120.6667'
-			},
-		];
+		attractionsFactory.getAll()
+			.success(function(data) {
+				$scope.attractions = data;
+				console.log(data);
+
+				for (i = 0; i < $scope.attractions.length; i++){
+					createMarker($scope.attractions[i]);
+				}
+			});
 
 		var mapOptions = {
 			zoom: 8,
@@ -99,7 +76,7 @@
 			var marker = new google.maps.Marker({
 				map: $scope.map,
 				position: new google.maps.LatLng(info.lat, info.long),
-				title: info.place
+				title: info.nameEnglish
 			});
 
 			marker.content = '<div class="infoWindowContent"><p class="marker-details">' + info.details + '</p></div>';
@@ -110,10 +87,6 @@
 			});
 
 			$scope.markers.push(marker);
-		}
-
-		for (i = 0; i < $scope.cities.length; i++){
-			createMarker($scope.cities[i]);
 		}
 
 		// $scope.openInfoWindow = function(e, selectedMarker){
@@ -173,6 +146,41 @@
 		// 	}
 		// };
 
+	}])
+
+	// ====================================================================================
+	// SERVICES =========================================================================
+	// ====================================================================================
+	
+	app.factory('attractionsFactory', ['$http', function($http) {
+		var attractionsFactory = {};
+
+		// get a single attraction
+		attractionsFactory.getAttraction = function(id) {
+			return $http.get('/attractions/' + id)
+		}
+
+		// get all the attractions
+		attractionsFactory.getAll = function() {
+			return $http.get('/attractions');
+		}
+
+		// create an attraction
+		attractionsFactory.create = function(attractionsData) {
+			return $http.post('/attractions/', attractionsData);
+		}
+
+		// update an attraction
+		attractionsFactory.update = function(id, attractionsData) {
+			return $http.put('/attractions/' + id, attractionsData);
+		}
+		
+		// delete an attraction
+		attractionsFactory.delete = function(id) {
+			return $http.delete('/attractions/' + id);
+		}
+
+		return attractionsFactory;
 	}])
 
 	// ====================================================================================
