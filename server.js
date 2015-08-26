@@ -9,13 +9,13 @@ var bodyParser		= require('body-parser');
 var cookieParser	= require('cookie-parser');
 var session 		= require('express-session');
 
-// var configDB 		= require('./config/database.js');
+var configDB 		= require('./config/database.js');
 
-// // connect to mongoDB
-// mongoose.connect(configDB.url);
+// connect to mongoDB
+mongoose.connect(configDB.url);
 
-// // passport configuration
-// require('./config/passport')(passport);
+// passport configuration
+require('./config/passport')(passport);
 
 // express app configuration
 app.use(morgan('dev'));

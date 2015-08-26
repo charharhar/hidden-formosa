@@ -227,7 +227,29 @@
 
 			})
 
-		}
+			// Login & Signup manipulations
+			// ======================================================
+			$('.nav-login').on('click', function() {
+				$('.login-signup-wrapper').css('display', 'block');
+				$('.login').addClass('form-active');
+			})
+
+			$('.swap-to-signup').on('click', function() {
+				$('.signup').addClass('form-active')
+				$('.login').removeClass('form-active');
+			})
+
+			$('.swap-to-login').on('click', function() {
+				$('.login').addClass('form-active')
+				$('.signup').removeClass('form-active');
+			})
+
+			$('.btn-home').on('click', function() {
+				$('.login-signup-wrapper').css('display','none');
+				$('.login, .signup').removeClass('form-active');
+			})
+
+		} // linkFn end
 		return { link: linkFn }
 	})
 
