@@ -107,6 +107,12 @@ module.exports = function(app, passport) {
 		})
 	})
 
+	attractionsRouter.get('/:attractionId', function(req, res) {
+		Attractions.findById(req.params.attractionId, function(err, attraction) {
+			if (!err) res.json(attraction);
+		})
+	})
+
 	// attractionsRouter.post('/', function(req, res) {
 	// 	var newAttraction 			= new Attractions();
 	// 	newAttraction.nameEnglish 	= req.body.nameEnglish;
@@ -121,12 +127,6 @@ module.exports = function(app, passport) {
 
 	// 	newAttraction.save(function(err, attraction) {
 	// 		if (!err) res.redirect('/#/attractions/' + attraction._id)
-	// 	})
-	// })
-
-	// attractionsRouter.get('/:attractionId', function(req, res) {
-	// 	Attractions.findById(req.params.attractionId, function(err, attraction) {
-	// 		if (!err) res.json(attraction);
 	// 	})
 	// })
 

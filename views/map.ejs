@@ -1,12 +1,69 @@
 
 <div id="map" class="map"></div>
 
+<div class="attractions-wrapper row">
+	
+	<div class="attractions-filter">
+		<ul class="attractions-filter-list">
+			<li>
+				<input type="radio" id="all" name="attractions-filter" value="all" ng-model="categoryFilter">
+				<label for="all">All</label>
+			</li>
+			<li>
+				<input type="radio" id="nightmarkets" name="attractions-filter" value="nightmarkets" ng-model="categoryFilter">
+				<label for="nightmarkets">Nightmarkets</label>
+			</li>
+			<li>
+				<input type="radio" id="nightlife" name="attractions-filter" value="Nightlife" ng-model="categoryFilter">
+				<label for="nightlife">Night Life</label>
+			</li>
+			<li>
+				<input type="radio" id="temples" name="attractions-filter" value="temples" ng-model="categoryFilter">
+				<label for="temples">Temples</label>
+			</li>
+			<li>
+				<input type="radio" id="museums" name="attractions-filter" value="museums" ng-model="categoryFilter">
+				<label for="museums">Museums</label>
+			</li>
+			<li>
+				<input type="radio" id="hiking" name="attractions-filter" value="hikes" ng-model="categoryFilter">
+				<label for="hiking">Mountain Hiking</label>
+			</li>
+			<li>
+				<input type="radio" id="shopping" name="attractions-filter" value="shopping" ng-model="categoryFilter">
+				<label for="shopping">Shopping</label>
+			</li>
+			<li>
+				<input type="radio" id="parknature" name="attractions-filter" value="pnz" ng-model="categoryFilter">
+				<label for="parknature">Park/Nature/Zoo</label>
+			</li>
+			<li>
+				<input type="radio" id="attractions" name="attractions-filter" value="attractions" ng-model="categoryFilter">
+				<label for="attractions">Famous Attractions</label>
+			</li>
+		</ul>
+	</div>
+
+	<div class="clear-both"></div>
+
+	<div class="database-container">
+		<div class="database-list" ng-repeat="marker in markers | orderBy:'title'" ng-click="openInfoWindow($event, marker)">
+			<a class="database-attraction" id="{{marker.id}}" ng-show="marker.category == categoryFilter || categoryFilter == 'all'"><label id="names">{{marker.title}}</label></a>
+		</div>
+	</div>
+	
+	<div class="details-container">
+		<div class="attraction-header">
+			<h2>{{attraction.nameEnglish}}</h2>
+		</div>
+		<div class="attraction-details">
+			{{attraction.details}}
+		</div>
+	</div>
+
+</div>
 
 
-<!-- <div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
-     <a id="country_container" href="#" ng-click="openInfoWindow($event, marker)">
-     <label id="names" >{{marker.title}}</label></a>
-</div> -->
 
 
 
