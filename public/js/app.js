@@ -2,11 +2,8 @@
 
 	var app = angular.module('hiddenFormosa', [
 		'ui.router',
-		'zumba.angular-waypoints', 
-		'duScroll'
+		'zumba.angular-waypoints'
 	])
-	.value('duScrollOffset', 1000)
-	.value('duScrollDuration', 2000);
 
 	app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 
@@ -19,7 +16,12 @@
 		$stateProvider
 			.state('home', {
 				url:'/',
-				templateUrl:'partial/home'
+				templateUrl:'partial/home',
+				controller: ['$scope', function($scope) {
+					navHeight = $('nav').outerHeight(true);
+					windowHeight = window.innerHeight;
+					$('.hero-overlay').css('height', windowHeight - navHeight - 100);
+				}]
 			})
 			.state('map', {
 				url:'/map',
@@ -40,9 +42,9 @@
 			})
 	}])
 
-	// ====================================================================================
-	// CONTROLLERS ========================================================================
-	// ====================================================================================
+// ====================================================================================
+// CONTROLLERS ========================================================================
+// ====================================================================================
 
 	app.controller('mapController', ['$scope', 'attractionsFactory', function($scope, attractionsFactory) {
 
@@ -59,7 +61,22 @@
 		var mapOptions = {
 			zoom: 8,
 			center: new google.maps.LatLng(23.75,121),
-			mapTypeId: google.maps.MapTypeId.ROADMAP
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			disableDefaultUI: true,
+			zoomControl:true,
+			zoomControlOptions: {
+				style: google.maps.ZoomControlStyle.SMALL,
+				position: google.maps.ControlPosition.RIGHT_CENTER
+			},
+			mapTypeControl: true,
+			mapTypeControlOptions: {
+				style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+				mapTypeIds: [
+					google.maps.MapTypeId.ROADMAP,
+					google.maps.MapTypeId.TERRAIN
+				]
+			}
+
 		}
 
 		$scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -81,15 +98,23 @@
 			marker.content = '<div class="infoWindowContent"><p class="marker-details">' + info.address + '</p></br><p class="marker-category">' + info.category + '</p></div>';
 
 			google.maps.event.addListener(marker, 'click', function(){
-				infoWindow.setContent('<h4><a class="marker-link" href="#' + marker.id + '" du-smooth-scroll>' + marker.title + '</a></h4>' + marker.content);
+				infoWindow.setContent('<h4 class="marker-heading">' + marker.title + '</h4>' + marker.content);
 				infoWindow.open($scope.map, marker);
 			});
 
 			$scope.markers.push(marker);
 		}
 
+		// default filter selected being all
+		$scope.categoryFilter = 'all';
 
-		// function for clicking on 
+		// setting the default header and details to explain how the map works
+		$scope.attraction = {
+			nameEnglish: 'ForMAPsa',
+			details: 'Have a look through our recommended hotspots of Taipei! Filter by category by clicking above and start scrolling through the attractions on the sidebar. Click on the attraction to view its location on the map!'
+		}
+
+		// function for clicking on specific attraction in database list
 		$scope.openInfoWindow = function(e, selectedMarker){
 			e.preventDefault();
 			google.maps.event.trigger(selectedMarker, 'click');
@@ -100,13 +125,17 @@
 					$scope.attraction = data;
 					console.log($scope.attraction);
 				})
+
+			// zoom in on map and center the pin
+			$scope.map.setZoom(17);
+			$scope.map.setCenter(selectedMarker.getPosition());
 		}
 
 	}])
 
-	// ====================================================================================
-	// SERVICES =========================================================================
-	// ====================================================================================
+// ====================================================================================
+// SERVICES =========================================================================
+// ====================================================================================
 	
 	app.factory('attractionsFactory', ['$http', function($http) {
 		var attractionsFactory = {};
@@ -139,9 +168,19 @@
 		return attractionsFactory;
 	}])
 
-	// ====================================================================================
-	// DIRECTIVES =========================================================================
-	// ====================================================================================
+// ====================================================================================
+// DIRECTIVES =========================================================================
+// ====================================================================================
+	
+	app.directive('mapDirective', function() {
+
+		var linkFn = function(scope, elem, attrs) {
+
+		}
+
+		return { link: linkFn }
+
+	})
 
 	app.directive('navDirective', function() {
 
@@ -213,6 +252,16 @@
 				$('.login, .signup').removeClass('form-active');
 			})
 
+			var KEYCODE_ESC = 27;
+			$(document).on({
+				keyup: function(e) {
+					if (e.keyCode == KEYCODE_ESC) {
+						$('.login-signup-wrapper').css('display','none');
+						$('.login, .signup').removeClass('form-active');
+					}
+				}
+			})
+
 		} // linkFn end
 		return { link: linkFn }
 	})
@@ -227,12 +276,9 @@
 		}
 
 		var controllerFn = function($scope) {
-
 			$scope.routeHome = function() {
 				$window.location.href = "/";
-
 			}
-
 		}
 
 		return {
