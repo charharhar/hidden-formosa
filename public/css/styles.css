@@ -59,7 +59,9 @@ a {
 /* =========================================================================================== */
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5 {
 	margin:0;
 	padding:0;
 }
@@ -89,6 +91,10 @@ h3 {
 h4 {
 	font-size:240%;
 	font-weight:300;
+}
+
+h5 {
+	font-style:italic;
 }
 
 
@@ -433,7 +439,7 @@ input[type=submit]:hover {
 	margin:0 auto;
 	padding:0;
 	width:1200px;
-	height:100px;
+	height:900px;
 	position:relative;
 }
 
@@ -451,16 +457,12 @@ input[type=submit]:hover {
     width:900px;
 }
 
-.gm-style-iw {
-	width:300px !important;
-}
-
 .marker-heading {
 	text-decoration: none;
 	color:#73A096;
 	text-transform:uppercase;
 	border-bottom: transparent;
-	width:200px;
+	width:300px;
 	transition:0.3s all;
 }
 
@@ -511,6 +513,8 @@ input[type=submit]:hover {
 }
 
 .details-container {
+	position:relative;
+	z-index:-1;
 	display:inline-block;
 	width:900px;
 	padding:0;
@@ -566,12 +570,12 @@ input[type=submit]:hover {
 	border-left: 10px solid transparent;
 }
 
-.details-open {
+.details-toggle {
 	position:absolute;
-	top:1%;
-	left:1%;
+	top:10px;
+	left:310px;
+	z-index:5;
 }
-
 
 /* =========================================================================================== */
 /* TAIWAN HISTORY */
@@ -666,17 +670,71 @@ input[type=submit]:hover {
 /* BLOG */
 /* =========================================================================================== */
 
-.blog-section {
+.blog-header {
+	background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../imgs/blog-heading.jpg);
+	background-position:center;
+	background-size:cover;
+	height:400px;
 	position:relative;
-	height:100vh;
 }
 
+.blog-header h1 {
+	font-weight:800;
+	font-size:350%;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+}
 
+.blog-header h1:after {
+	display:block;
+	height:4px;
+	background-color:#08A650;
+	content:" ";
+	width:100px;
+	margin: 15px auto;
+}
 
-/* =========================================================================================== */
-/* BUTTONS */
-/* =========================================================================================== */
+.blog-row {
+	max-width:800px;
+	margin:0 auto;
+}
 
+.blog-title {
+	margin:50px 0;
+}
+
+.blog-title h5 {
+	margin-top:15px;
+}
+
+hr {
+	color:#08A650;
+}
+
+.blog-link {
+	text-decoration:none;
+	color:#222;
+	transition:0.2s all;
+}
+
+.blog-link:hover {
+	color:#08A650;
+}
+
+.blog-section {
+	position:relative;
+	height:auto;
+}
+
+.blog-content {
+	line-height:1.5;
+	width:600px;
+	margin: 0 auto;
+	font-size:110%;
+	font-weight:400;
+}
 
 /* =========================================================================================== */
 /* FOOTER */
@@ -693,7 +751,6 @@ footer p {
 	text-align: center;
 	padding-top:40px;
 }
-
 
 /* =========================================================================================== */
 /* ANIMATIONS */

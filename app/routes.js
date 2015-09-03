@@ -2,6 +2,7 @@
 var express 		= require('express');
 var User 			= require('./models/user');
 var Attractions 	= require('./models/attractions');
+var Blogs 			= require('./models/blogs');
 
 module.exports = function(app, passport) {
 
@@ -11,10 +12,12 @@ module.exports = function(app, passport) {
 	// declaring instance of express.Router for projects and users
 	var attractionsRouter 	= express.Router();
 	var userRouter 			= express.Router();
+	var blogsRouter 		= express.Router();
 
 	// registering attractions and users routes
 	app.use('/users', userRouter);
 	app.use('/attractions', attractionsRouter);
+	app.use('/blogs', blogsRouter)
 
 // HOME PAGE (with login links) ========
 // =====================================
@@ -98,8 +101,8 @@ module.exports = function(app, passport) {
 	// 	})
 	// })
 
-// attractions CRUD ROUTES =====================
-// ==========================================
+// ATTRACTIONS CRUD ROUTES =====================
+// =============================================
 	
 	attractionsRouter.get('/', function(req, res) {
 		Attractions.find(function(err, attractions) {
@@ -158,5 +161,19 @@ module.exports = function(app, passport) {
 	// 	})
 	// })
 
+// BLOGS CRUD ROUTES ===========================
+// =============================================
+	
+	blogsRouter.get('/', function(req, res) {
+		Blogs.find(function(err, blogs) {
+			if (!err) res.send(blogs)
+		})
+	})
+
+	blogsRouter.get('/:blogId', function(req, res) {
+		Blogs.findById(req.params.blogId, function(err, blog) {
+			if (!err) res.json(blog);
+		})
+	})
 }
 

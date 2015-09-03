@@ -38,6 +38,7 @@
 			})
 			.state('blog', {
 				url:'/blog',
+				controller:'blogController',
 				templateUrl:'partial/blog.ejs'
 			})
 	}])
@@ -133,6 +134,32 @@
 
 	}])
 
+	app.controller('blogController', ['$scope', '$sce', '$timeout', 'blogsFactory', function($scope, $sce, $timeout, blogsFactory) {
+
+		// Default blog data
+		$scope.blog = {
+			title: 'WEEKLY BLOG'
+		}
+
+		blogsFactory.getAll()
+			.success(function(data) {
+				$scope.blogs = data;
+				console.log(data);
+				
+			})
+
+		$scope.openSelectedArticle = function(blogId) {
+			blogsFactory.getBlog(blogId)
+				.success(function(data) {
+					$timeout(function() {
+						$scope.blog = data;
+						$scope.htmlFormat = $sce.trustAsHtml($scope.blog.content);
+					},1000)
+				})
+		}
+
+	}])
+
 // ====================================================================================
 // SERVICES =========================================================================
 // ====================================================================================
@@ -142,7 +169,7 @@
 
 		// get a single attraction
 		attractionsFactory.getAttraction = function(id) {
-			return $http.get('/attractions/' + id)
+			return $http.get('/attractions/' + id);
 		}
 
 		// get all the attractions
@@ -168,19 +195,43 @@
 		return attractionsFactory;
 	}])
 
+	app.factory('blogsFactory', ['$http', function($http) {
+		var blogsFactory = {};
+
+		// get a single blog
+		blogsFactory.getBlog = function(id) {
+			return $http.get('/blogs/' + id);
+		}
+
+		// get all the blogs
+		blogsFactory.getAll = function() {
+			return $http.get('/blogs');
+		}
+
+		return blogsFactory;
+
+	}])
+
 // ====================================================================================
 // DIRECTIVES =========================================================================
 // ====================================================================================
 	
-	app.directive('mapDirective', function() {
+	app.directive('blogDirective', ['$timeout', function($timeout) {
 
 		var linkFn = function(scope, elem, attrs) {
+
+			$('.blog-link').on('click', function() {
+				$(this).css('color','red');
+				$timeout(function() {
+					$('.blog-link ~ .blog-link').css('color','red');
+				},200)
+			})
 
 		}
 
 		return { link: linkFn }
 
-	})
+	}])
 
 	app.directive('navDirective', function() {
 
