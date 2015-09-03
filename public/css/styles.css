@@ -401,10 +401,13 @@ input[type=submit]:hover {
 /* HOME */
 /* =========================================================================================== */
 .hero-overlay {
-	background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../imgs/sys-memorial.jpg);
-	background-size:cover;
-	background-position:center;
-	background-attachment:fixed;
+	position:absolute;
+	top:0%;
+	left:0%;
+	height:inherit;
+	width:100%;
+	background:rgba(0, 0, 0, 0.5);
+	z-index:100;
 }
 
 .hero-heading {
@@ -413,6 +416,10 @@ input[type=submit]:hover {
 	left:50%;
 	transform:translate(-50%, -50%);
 	width:100%;
+}
+
+.hero-heading h1 {
+	font-weight:400;
 }
 
 .hero-btn {
@@ -430,6 +437,28 @@ input[type=submit]:hover {
 .hero-btn:hover {
 	background:#d5c6c0;
 }
+
+.video-visible {
+	height: 750px;
+	position: relative;
+}
+
+.video-container {
+	position: absolute;
+	top:0%;
+	left:0%;
+	height:100%;
+	width:100%;
+	overflow: hidden;
+}
+
+.fill-width {
+	position:absolute;
+	top:-50px;
+	z-index:-100;
+	width: 100%;
+}
+
 
 /* =========================================================================================== */
 /* MAP */

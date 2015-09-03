@@ -338,5 +338,19 @@
 		}
 	}])
 
+	app.directive('bgVideo', function() {
+
+		var linkFn = function(scope, elem, attrs) {
+
+			elem.height($('.video-visible').height());
+
+			// elem.height($(window).height() - $('nav').outerHeight());
+			// elem.width($(window).width());
+		}
+
+		return { link: linkFn }
+
+	})
+
 }())
 
