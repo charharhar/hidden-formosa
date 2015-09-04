@@ -11,18 +11,12 @@
 			<a class="blog-link" href="" ng-click="openSelectedArticle(blog._id)"><h4>{{ blog.title }}</h4></a>
 			<h5>Published by {{ blog.by }} on {{ blog.datePublished | date:'MM/dd/yyyy' }}</h5>
 		</div>
-
 		<hr>
 	</div>
-
-	<div class="blog-content" ng-bind-html="htmlFormat">
-		
-		<a href="" class="blog-return">back</a>	
-		
+	
+	<div class="content-container">
+		<a href="" class="blog-return"><i class="ion-arrow-left-a blog-icon"></i></a>	
+		<div class="blog-content" ng-bind-html="htmlFormat"></div>
 	</div>
 
-	
 </div>
-
-
-	

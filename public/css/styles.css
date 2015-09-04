@@ -160,6 +160,17 @@ h5 {
 	color:#fff;
 	width:100%;
 }
+
+.blog-icon {
+	font-size:180%;
+	color:#222;
+	transition:0.2s all;
+}
+
+.blog-icon:hover {
+	color:#08A650;
+}
+
 /* =========================================================================================== */
 /* NAVIGATION */
 /* =========================================================================================== */
@@ -755,6 +766,21 @@ hr {
 .blog-section {
 	position:relative;
 	height:auto;
+}
+
+.content-container {
+	position:relative;
+	width:800px;
+	margin:50px auto;
+}
+
+.blog-container,
+.content-container {
+	transition: 1s all;
+}
+
+.blog-return {
+	position:absolute;
 }
 
 .blog-content {

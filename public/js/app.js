@@ -134,7 +134,7 @@
 
 	}])
 
-	app.controller('blogController', ['$scope', '$sce', '$timeout', 'blogsFactory', function($scope, $sce, $timeout, blogsFactory) {
+	app.controller('blogController', ['$scope', '$sce', 'blogsFactory', function($scope, $sce, blogsFactory) {
 
 		// Default blog data
 		$scope.blog = {
@@ -151,10 +151,8 @@
 		$scope.openSelectedArticle = function(blogId) {
 			blogsFactory.getBlog(blogId)
 				.success(function(data) {
-					$timeout(function() {
-						$scope.blog = data;
-						$scope.htmlFormat = $sce.trustAsHtml($scope.blog.content);
-					},1000)
+					$scope.blog = data;
+					$scope.htmlFormat = $sce.trustAsHtml($scope.blog.content);
 				})
 		}
 
@@ -221,10 +219,19 @@
 		var linkFn = function(scope, elem, attrs) {
 
 			$('.blog-link').on('click', function() {
-				$(this).css('color','red');
-				$timeout(function() {
-					$('.blog-link ~ .blog-link').css('color','red');
-				},200)
+				$('.blog-container').addClass('animated fadeOut');
+				$('.content-container').addClass('animated fadeIn');
+
+				$('.blog-container').removeClass('fadeIn');
+				$('.content-container').removeClass('fadeOut');
+			})
+
+			$('.blog-return').on('click', function() {
+				$('.blog-container').addClass('animated fadeIn');
+				$('.content-container').addClass('animated fadeOut');
+
+				$('.blog-container').removeClass('fadeOut');
+				$('.content-container').removeClass('fadeIn');
 			})
 
 		}
@@ -342,10 +349,9 @@
 
 		var linkFn = function(scope, elem, attrs) {
 
+			// setting div.hero-overlay to dynamically have same height as the video-container
 			elem.height($('.video-visible').height());
 
-			// elem.height($(window).height() - $('nav').outerHeight());
-			// elem.width($(window).width());
 		}
 
 		return { link: linkFn }
