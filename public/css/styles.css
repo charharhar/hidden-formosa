@@ -643,9 +643,6 @@ input[type=submit]:hover {
 	color:#333;
 }
 
-.content-container {
-}
-
 .content-block {
 	display:block;
 	width:50%;
@@ -768,14 +765,14 @@ hr {
 	height:auto;
 }
 
-.content-container {
+.blog-content-container {
 	position:relative;
 	width:800px;
 	margin:50px auto;
 }
 
 .blog-container,
-.content-container {
+.blog-content-container {
 	transition: 1s all;
 }
 
