@@ -5,7 +5,7 @@
 </div>
 
 <div class="blog-section">
-
+	
 	<div class="blog-container blog-row" ng-repeat="blog in blogs | orderBy:'-datePublished'" blog-directive>
 		<div class="blog-title">
 			<a class="blog-link" href="" ng-click="openSelectedArticle(blog._id)"><h4>{{ blog.title }}</h4></a>
@@ -13,9 +13,9 @@
 		</div>
 		<hr>
 	</div>
-	
+
 	<div class="blog-content-container">
-		<a href="" class="blog-return"><i class="ion-arrow-left-a blog-icon"></i></a>	
+		<a href="" class="blog-return"><i class="ion-arrow-left-a blog-icon"></i></a>
 		<div class="blog-content" ng-bind-html="htmlFormat"></div>
 	</div>
 

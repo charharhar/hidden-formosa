@@ -219,19 +219,31 @@
 		var linkFn = function(scope, elem, attrs) {
 
 			$('.blog-link').on('click', function() {
-				$('.blog-container').addClass('animated fadeOut');
-				$('.content-container').addClass('animated fadeIn');
+				$('.blog-container').addClass('animated fadeOutRight');
+				$('.content-container').addClass('animated fadeInLeft');
 
-				$('.blog-container').removeClass('fadeIn');
-				$('.content-container').removeClass('fadeOut');
+				$('.blog-container').removeClass('fadeInLeft');
+				$('.content-container').removeClass('fadeOutRight');
+
+				$timeout(function() {
+					$('.blog-link').css('display','none');
+					$('.blog-container').css('position','absolute');
+					$('.blog-content-container').css('display','block');
+				}, 800)
+
 			})
 
 			$('.blog-return').on('click', function() {
-				$('.blog-container').addClass('animated fadeIn');
-				$('.content-container').addClass('animated fadeOut');
+				$('.blog-container').addClass('animated fadeInLeft');
+				$('.content-container').addClass('animated fadeOutRight');
 
-				$('.blog-container').removeClass('fadeOut');
-				$('.content-container').removeClass('fadeIn');
+				$('.blog-container').removeClass('fadeOutRight');
+				$('.content-container').removeClass('fadeInLeft');
+
+				// handling positioning and animation details
+				$('.blog-link').css('display','block');
+				$('.blog-container').css('position','relative');
+				$('.blog-content-container').css('display','none');
 			})
 
 		}

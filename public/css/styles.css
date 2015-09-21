@@ -643,6 +643,9 @@ input[type=submit]:hover {
 	color:#333;
 }
 
+.content-container {
+}
+
 .content-block {
 	display:block;
 	width:50%;
@@ -739,7 +742,8 @@ input[type=submit]:hover {
 }
 
 .blog-title {
-	margin:50px 0;
+	margin-bottom:50px;
+	padding-bottom:50px;
 }
 
 .blog-title h5 {
@@ -762,7 +766,6 @@ hr {
 
 .blog-section {
 	position:relative;
-	height:auto;
 }
 
 .blog-content-container {
@@ -774,6 +777,13 @@ hr {
 .blog-container,
 .blog-content-container {
 	transition: 1s all;
+}
+
+.blog-container {
+	background:#edded9;
+	position:relative;
+	z-index:10;
+	padding:50px 0;
 }
 
 .blog-return {
