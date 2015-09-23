@@ -36,6 +36,11 @@
 				url:'/attractions',
 				templateUrl:'partial/attractions.ejs'
 			})
+			.state('aborigine', {
+				url:'/aborigine',
+				controller:'aborigineController',
+				templateUrl:'partial/aborigine.ejs'
+			})
 			.state('blog', {
 				url:'/blog',
 				controller:'blogController',
@@ -154,6 +159,56 @@
 					$scope.blog = data;
 					$scope.htmlFormat = $sce.trustAsHtml($scope.blog.content);
 				})
+		}
+
+	}])
+
+	app.controller('aborigineController', ['$scope', function($scope) {
+
+		// Set Options
+		var speed = 500;
+		var autoswitch = true;
+		var autoswitch_speed = 4000;
+
+		var slide = $('.aborigine-slide');
+
+		// Add initial active class
+		slide.first().addClass('active');
+
+		// Hide all slides
+		slide.hide();
+
+		// Show first slide
+		$('.active').show();
+
+		if (autoswitch == true) {
+			setInterval(nextSlide, autoswitch_speed);
+		}
+
+		function nextSlide() {
+			$('.active').removeClass('active').addClass('oldActive');
+			// if on the last slide, we want the first slide to come back
+			if ( $('.oldActive').is(':last-child') ) {
+				slide.first().addClass('active');
+			} else {
+				$('.oldActive').next().addClass('active');
+			}
+			$('.oldActive').removeClass('oldActive');
+			slide.fadeOut(speed);
+			$('.active').fadeIn(speed);
+		}
+
+		function prevSlide() {
+			$('.active').removeClass('active').addClass('oldActive');
+			// if on the last slide, we want the first slide to come back
+			if ( $('.oldActive').is(':first-child') ) {
+				slide.last().addClass('active');
+			} else {
+				$('.oldActive').prev().addClass('active');
+			}
+			$('.oldActive').removeClass('oldActive');
+			slide.fadeOut(speed);
+			$('.active').fadeIn(speed);
 		}
 
 	}])

@@ -1,6 +1,7 @@
 /*
 Primary color: #edded9;
 darker version: #d5c6c0;
+Green color : #73A096;
 
 
 */
@@ -41,6 +42,10 @@ a {
 .row {
 	max-width: 1140px;
 	margin:0 auto;
+}
+
+.text-center {
+	text-align:center;
 }
 
 .long-para {
@@ -177,7 +182,7 @@ h5 {
 
 nav {
 	height:130px;
-	background-color:#fafafa;
+	background-color:#fefefe;
 	position:relative;
 	z-index:100;
 }
@@ -705,6 +710,85 @@ input[type=submit]:hover {
     left:0;
     background:rgba(0,0,0,0.2);
 }
+
+/* =========================================================================================== */
+/* ABORIGINE */
+/* =========================================================================================== */
+
+.aborigine-block {
+	margin: 0 0 20px 0;
+}
+
+.aborigine-featured-header {
+	height:30vh;
+	position:relative;
+}
+
+.aborigine-headers {
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+}
+
+.aborigine-featured-header h2,
+.aborigine-featured-header h3 {
+	margin:10px;
+}
+
+.aborigine-featured-content {
+	margin:0;
+}
+
+.aborigine-details {
+	width:100%;
+}
+
+.aborigine-details ul {
+	list-style: none;
+}
+
+.aborigine-details li {
+	float:left;
+	padding:15px 20%;
+	width:100%;
+	background:#73A096;
+	border-bottom:1px solid #edded9;
+	cursor:pointer;
+	font-size:120%;
+	font-weight:400;
+}
+
+.aborigine-more {
+	padding:10px;
+	margin:0 auto;
+	max-width:1000px;
+}
+
+.aborigine-more p {
+	font-weight:400;
+}
+
+#slider {
+	width:1300px;
+	height:600px;
+	position:relative;
+	overflow:hidden;
+	padding:3px;
+	border: #666 solid 2px;
+	border-radius: 5px;
+	margin:10px auto;
+}
+
+#slider img {
+	width:1300px;
+	height:600px;
+}
+
+.aborigine-slide {
+	position: absolute;
+}
+
 
 /* =========================================================================================== */
 /* BLOG */
