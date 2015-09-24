@@ -211,6 +211,26 @@
 			$('.active').fadeIn(speed);
 		}
 
+		// Typed.js method
+		var featuredTour = 'Da Wu Shan';
+
+		$(function(){
+			$(".typed-element").typed({
+				strings: ['Featured this month ^500', featuredTour],
+				typeSpeed: 150
+			});
+		});
+
+		// aborigine nav link functions 
+		// ==== NEED A DIRECTIVE =====
+		$('#read-more').on('click', function() {
+			$('.aborigine-more').toggleClass('visible');
+		})
+
+		$('#booking').on('click', function() {
+			$('.aborigine-booking').toggleClass('aborigine-booking-activate')
+		})
+
 	}])
 
 // ====================================================================================

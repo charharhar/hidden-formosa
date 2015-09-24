@@ -60,7 +60,7 @@ a {
 }
 
 /* =========================================================================================== */
-/* HEADINGS */
+/* HEADINGS PARAGRAPHS AND LINKS */
 /* =========================================================================================== */
 h1,
 h2,
@@ -102,6 +102,9 @@ h5 {
 	font-style:italic;
 }
 
+a {
+	text-decoration:none;
+}
 
 /* =========================================================================================== */
 /* ICONS & FONTS & SVGS */
@@ -725,10 +728,10 @@ input[type=submit]:hover {
 }
 
 .aborigine-headers {
-	position:absolute;
-	top:50%;
-	left:50%;
-	transform:translate(-50%, -50%);
+	margin:0 auto;
+	width:100%;
+	text-align: center;
+	padding:8vh 0;
 }
 
 .aborigine-featured-header h2,
@@ -757,12 +760,35 @@ input[type=submit]:hover {
 	cursor:pointer;
 	font-size:120%;
 	font-weight:400;
+	text-transform: uppercase;
+	letter-spacing:50px;
+	transition:0.5s all;
+	color:#222;
+}
+
+.aborigine-details li:hover {
+	letter-spacing:8px;
+}
+
+.aborigine-booking {
+	height:0;
+	opacity:0;
+	position:relative;
+	transition:1s all;
+	z-index:-10;
+}
+
+.aborigine-booking-activate {
+	height:400px;
+	opacity:1;
 }
 
 .aborigine-more {
-	padding:10px;
-	margin:0 auto;
+	padding-top:30px;
+	margin:0 auto 80px auto;
 	max-width:1000px;
+	opacity:0;
+	transition:1s all;
 }
 
 .aborigine-more p {
@@ -777,7 +803,7 @@ input[type=submit]:hover {
 	padding:3px;
 	border: #666 solid 2px;
 	border-radius: 5px;
-	margin:10px auto;
+	margin:0 auto 80px auto;
 }
 
 #slider img {
@@ -789,6 +815,35 @@ input[type=submit]:hover {
 	position: absolute;
 }
 
+.typed-element {
+	display:inline-block;
+	font-size:450%;
+	font-weight:300;
+}
+
+.typed-cursor{
+	opacity: 1;
+	font-size:450%;
+	font-weight:300;
+	-webkit-animation: blink 0.7s infinite;
+	-moz-animation: blink 0.7s infinite;
+	animation: blink 0.7s infinite;
+}
+@keyframes blink{
+	0% { opacity:1; }
+	50% { opacity:0; }
+	100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+	0% { opacity:1; }
+	50% { opacity:0; }
+	100% { opacity:1; }
+}
+@-moz-keyframes blink{
+	0% { opacity:1; }
+	50% { opacity:0; }
+	100% { opacity:1; }
+}
 
 /* =========================================================================================== */
 /* BLOG */
@@ -915,5 +970,9 @@ footer p {
 .block-3.animated,
 .block-4.animated,
 .block-5.animated {
+	opacity:1;
+}
+
+.visible {
 	opacity:1;
 }
