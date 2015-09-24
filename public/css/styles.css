@@ -761,13 +761,13 @@ input[type=submit]:hover {
 	font-size:120%;
 	font-weight:400;
 	text-transform: uppercase;
-	letter-spacing:50px;
+	letter-spacing:15px;
 	transition:0.5s all;
 	color:#222;
 }
 
 .aborigine-details li:hover {
-	letter-spacing:8px;
+	letter-spacing:30px;
 }
 
 .aborigine-booking {
