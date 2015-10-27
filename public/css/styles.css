@@ -138,7 +138,7 @@ a {
 }
 
 .red-accents path {
-	fill:#fafafa;
+	fill:#fefefe;
 	transition:1s all;
 }
 
@@ -313,7 +313,7 @@ nav {
 	height:100%;
 	display:none;
 	z-index:1000;
-	background:rgba(0, 0, 0, 0.8);
+	background:rgba(0, 0, 0, 0.9);
 }
 
 .form-container {
@@ -489,6 +489,7 @@ input[type=submit]:hover {
 	width:1200px;
 	height:900px;
 	position:relative;
+	z-index:-1;
 }
 
 .map-container {
@@ -541,23 +542,26 @@ input[type=submit]:hover {
 
 .attractions-filter-list label {
     display:inline-block;
-    background-color:#ddd;
+    background-color:#73A096;
     padding:5px 10px;
     font-size:90%;
     color:#222;
    	cursor:pointer;
+   	border-radius:3px;
 }
 
 .attractions-filter-list input[type="radio"]:checked + label { 
-    background-color:#bbb;
+    font-weight:600;
 }
 
 .database-container {
 	display:inline-block;
 	width:300px;
-	float:left;
+	float:right;
 	height:900px;
 	background:rgba(0, 0, 0, 0.3);
+	overflow-y:auto;
+	overflow-x:hidden;
 }
 
 .details-container {
@@ -569,8 +573,13 @@ input[type=submit]:hover {
 	margin:0;
 }
 
+.attraction-header {
+	height:auto;
+	background:white;
+}
+
 .attraction-details {
-	height:220px;
+	height:250px;
 	background:#fff;
 }
 
@@ -583,11 +592,6 @@ input[type=submit]:hover {
 	cursor:pointer;
 }
 
-.attraction-header {
-	height:80px;
-	background:white;
-}
-
 .database-attraction {  
 	text-align: center; 
 	font-size:90%;
@@ -597,8 +601,13 @@ input[type=submit]:hover {
 	cursor: pointer;
 }
 
-.database-list:hover #names:before {
-	border-left: 10px solid #08A650;
+.database-list #names {
+	font-weight:400;
+	line-height:140%;
+}
+
+.database-list:hover #names {
+	font-weight:800;
 }
 
 #names { 

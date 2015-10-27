@@ -1,3 +1,60 @@
+<!-- 
+<div class="attractions-filter">
+	<ul class="attractions-filter-list">
+		<li>
+			<input type="radio" id="allDistricts" name="taipei-filter" value="allDistricts" ng-model="districtFilter">
+			<label for="allDistricts">All Districts</label>
+		</li>
+		<li>
+			<input type="radio" id="Zhongshan" name="taipei-filter" value="Zhongshan" ng-model="districtFilter">
+			<label for="Zhongshan">Zhongshan</label>
+		</li>
+		<li>
+			<input type="radio" id="Songshan" name="taipei-filter" value="Songshan" ng-model="districtFilter">
+			<label for="Songshan">Songshan</label>
+		</li>
+		<li>
+			<input type="radio" id="Daan" name="taipei-filter" value="Daan" ng-model="districtFilter">
+			<label for="Daan">Daan</label>
+		</li>
+		<li>
+			<input type="radio" id="Zhongzhen" name="taipei-filter" value="Zhongzhen" ng-model="districtFilter">
+			<label for="Zhongzhen">Zhongzhen</label>
+		</li>
+		<li>
+			<input type="radio" id="Wenshan" name="taipei-filter" value="Wenshan" ng-model="districtFilter">
+			<label for="Wenshan">Wenshan</label>
+		</li>
+		<li>
+			<input type="radio" id="Shilin" name="taipei-filter" value="Shilin" ng-model="districtFilter">
+			<label for="Shilin">Shilin</label>
+		</li>
+		<li>
+			<input type="radio" id="Xinyi" name="taipei-filter" value="Xinyi" ng-model="districtFilter">
+			<label for="Xinyi">Xinyi</label>
+		</li>
+		<li>
+			<input type="radio" id="Datong" name="taipei-filter" value="Datong" ng-model="districtFilter">
+			<label for="Datong">Datong</label>
+		</li>
+		<li>
+			<input type="radio" id="Beitou" name="taipei-filter" value="Beitou" ng-model="districtFilter">
+			<label for="Beitou">Beitou</label>
+		</li>
+		<li>
+			<input type="radio" id="Jinshan" name="taipei-filter" value="Jinshan" ng-model="districtFilter">
+			<label for="Jinshan">Jinshan</label>
+		</li>
+		<li>
+			<input type="radio" id="Banqiao" name="taipei-filter" value="Banqiao" ng-model="districtFilter">
+			<label for="Banqiao">Banqiao</label>
+		</li>
+		<li>
+			<input type="radio" id="Sanzhi" name="taipei-filter" value="Sanzhi" ng-model="districtFilter">
+			<label for="Sanzhi">Sanzhi</label>
+		</li>
+	</ul>
+</div> -->
 
 <div class="attractions-filter">
 	<ul class="attractions-filter-list">
@@ -30,7 +87,7 @@
 			<label for="shopping">Shopping</label>
 		</li>
 		<li>
-			<input type="radio" id="parknature" name="attractions-filter" value="ParksNatureZoos" ng-model="categoryFilter">
+			<input type="radio" id="parknature" name="attractions-filter" value="ParkNatureZoo" ng-model="categoryFilter">
 			<label for="parknature">Park/Nature/Zoo</label>
 		</li>
 		<li>
@@ -57,7 +114,9 @@
 
 	<div class="database-container" id="db-waypoint">
 		<div class="database-list" ng-repeat="marker in markers | orderBy:'title'" ng-click="openInfoWindow($event, marker)">
-			<a class="database-attraction" id="{{marker.id}}" ng-show="marker.category == categoryFilter || categoryFilter == 'all'"><label id="names">{{marker.title}}</label></a>
+			<a class="database-attraction" id="{{marker.id}}" ng-show="marker.category == categoryFilter || categoryFilter == 'all' || marker.district == districtFilter">
+				<label id="names">{{marker.title}}</label>
+			</a>
 		</div>
 	</div>
 	

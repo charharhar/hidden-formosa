@@ -110,9 +110,10 @@
 
 			$scope.markers.push(marker);
 		}
-
+		
 		// default filter selected being all
 		$scope.categoryFilter = 'all';
+		$scope.districtFilter = 'allDistricts';
 
 		// setting the default header and details to explain how the map works
 		$scope.attraction = {
